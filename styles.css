@@ -140,3 +140,34 @@ nav a.router-link-active {
 * { 
   font-family: Arial, Helvetica, sans-serif; 
 }
+
+
+#mapid {  width: auto;
+  height: 500px; }
+
+.parking{
+	float: left;
+  	border: solid red 1px;
+    width: 150px;
+    height: 250px;
+    text-align: center;
+	line-height: 250px;
+}
+
+.reserved {
+	background-color: yellow;
+}
+
+.busy {
+	background-color: red;
+}
+
+.available {
+	background-color: green;
+}
+
+.parking-title {
+    font-family: cursive;
+    font-size: xx-large;
+    color: white;	
+}

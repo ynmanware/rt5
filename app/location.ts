@@ -1,11 +1,22 @@
 export class Location {
   id: number;
   name: string;
+  center: {lat: Number, lng: Number};
+  spaces: [{id: Number, 
+  			name: String,
+			owner: {
+				id: Number,
+				name: String
+			},
+			rating: {},
+			slots : [{
+			id : Number,
+			name : String,
+			status : String
+		}],
+		cords : [{
+			lat : Number,
+			lng : Number
+			}]
+		}];
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

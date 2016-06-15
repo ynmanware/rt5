@@ -6,17 +6,12 @@ import { LocationsComponent }     from './locations.component';
 import { LocationDetailComponent } from './location-detail.component';
 import { LocationService }         from './location.service';
 
+import { SelectParkingComponent } from './select-parking.component';
+
 @Component({
   selector: 'my-app',
 
-  template: `
-    <h1>{{title}}</h1>
-    <nav>
-      <a [routerLink]="['Dashboard']">Dashboard</a>
-      <a [routerLink]="['Locations']">Locations</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
+  templateUrl: 'app/landingPage.html',
   styleUrls: ['app/app.component.css'],
   directives: [ROUTER_DIRECTIVES],
   providers: [
@@ -27,7 +22,12 @@ import { LocationService }         from './location.service';
 @RouteConfig([
   { path: '/dashboard',  name: 'Dashboard',  component: DashboardComponent, useAsDefault: true },
   { path: '/detail/:id', name: 'LocationDetail', component: LocationDetailComponent },
-  { path: '/locations',     name: 'Locations',     component: LocationsComponent }
+  { path: '/locations',     name: 'Locations',     component: LocationsComponent },
+  {
+    path: '/selectParking',
+    name: 'SelectParking',
+    component: SelectParkingComponent
+  }
 ])
 export class AppComponent {
   title = 'Tour of Locations';
