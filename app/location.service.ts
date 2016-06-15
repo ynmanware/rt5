@@ -3,39 +3,39 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Hero } from './hero';
+import { Location } from './location';
 
 @Injectable()
-export class HeroService {
+export class LocationService {
 
-  private heroesUrl = 'app/heroes';  // URL to web api
+  private locationsUrl = 'app/locations';  // URL to web api
 
   constructor(private http: Http) { }
 
-  getHeroes(): Promise<Hero[]> {
-    return this.http.get(this.heroesUrl)
+  getLocations(): Promise<Location[]> {
+    return this.http.get(this.locationsUrl)
                .toPromise()
                .then(response => response.json().data)
                .catch(this.handleError);
   }
 
-  getHero(id: number) {
-    return this.getHeroes()
-               .then(heroes => heroes.filter(hero => hero.id === id)[0]);
+  getLocation(id: number) {
+    return this.getLocations()
+               .then(locations => locations.filter(location => location.id === id)[0]);
   }
 
-  save(hero: Hero): Promise<Hero>  {
-    if (hero.id) {
-      return this.put(hero);
+  save(location: Location): Promise<Location>  {
+    if (location.id) {
+      return this.put(location);
     }
-    return this.post(hero);
+    return this.post(location);
   }
 
-  delete(hero: Hero) {
+  delete(location: Location) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    let url = `${this.heroesUrl}/${hero.id}`;
+    let url = `${this.locationsUrl}/${location.id}`;
 
     return this.http
                .delete(url, headers)
@@ -43,29 +43,29 @@ export class HeroService {
                .catch(this.handleError);
   }
 
-  // Add new Hero
-  private post(hero: Hero): Promise<Hero> {
+  // Add new Location
+  private post(location: Location): Promise<Location> {
     let headers = new Headers({
       'Content-Type': 'application/json'});
 
     return this.http
-               .post(this.heroesUrl, JSON.stringify(hero), {headers: headers})
+               .post(this.locationsUrl, JSON.stringify(location), {headers: headers})
                .toPromise()
                .then(res => res.json().data)
                .catch(this.handleError);
   }
 
-  // Update existing Hero
-  private put(hero: Hero) {
+  // Update existing Location
+  private put(location: Location) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    let url = `${this.heroesUrl}/${hero.id}`;
+    let url = `${this.locationsUrl}/${location.id}`;
 
     return this.http
-               .put(url, JSON.stringify(hero), {headers: headers})
+               .put(url, JSON.stringify(location), {headers: headers})
                .toPromise()
-               .then(() => hero)
+               .then(() => location)
                .catch(this.handleError);
   }
 

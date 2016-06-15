@@ -4,7 +4,7 @@ import { Headers, Http, Jsonp, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/Rx';
 
-import { Hero } from './hero';
+import { Location } from './location';
 
 
 @Injectable()
@@ -12,7 +12,7 @@ export class ParkingService {
 
 	//private parkingUrl = 'http://www.mocky.io/v2/575fe9c40f0000720ca6b109';  // URL to web api
 	
-	//private parkingUrl = 'http://parkingonrent.heroku.com/api/parkingsjsonp';  // URL to web api
+	//private parkingUrl = 'http://parkingonrent.locationku.com/api/parkingsjsonp';  // URL to web api
 	
 	private parkingUrl = 'http://localhost:5000/api/parkingsjsonp';  // URL to web api
 

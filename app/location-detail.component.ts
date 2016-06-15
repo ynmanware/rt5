@@ -1,22 +1,22 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouteParams } from '@angular/router-deprecated';
 
-import { Hero }        from './hero';
-import { HeroService } from './hero.service';
+import { Location }        from './location';
+import { LocationService } from './location.service';
 
 @Component({
-  selector: 'my-hero-detail',
-  templateUrl: 'app/hero-detail.component.html',
-  styleUrls: ['app/hero-detail.component.css']
+  selector: 'my-location-detail',
+  templateUrl: 'app/location-detail.component.html',
+  styleUrls: ['app/location-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit {
-  @Input() hero: Hero;
+export class LocationDetailComponent implements OnInit {
+  @Input() location: Location;
   @Output() close = new EventEmitter();
   error: any;
   navigated = false; // true if navigated here
 
   constructor(
-    private heroService: HeroService,
+    private locationService: LocationService,
     private routeParams: RouteParams) {
   }
 
@@ -24,24 +24,24 @@ export class HeroDetailComponent implements OnInit {
     if (this.routeParams.get('id') !== null) {
       let id = +this.routeParams.get('id');
       this.navigated = true;
-      this.heroService.getHero(id)
-          .then(hero => this.hero = hero);
+      this.locationService.getLocation(id)
+          .then(location => this.location = location);
     } else {
       this.navigated = false;
-      this.hero = new Hero();
+      this.location = new Location();
     }
   }
   save() {
-    this.heroService
-        .save(this.hero)
-        .then(hero => {
-          this.hero = hero; // saved hero, w/ id if new
-          this.goBack(hero);
+    this.locationService
+        .save(this.location)
+        .then(location => {
+          this.location = location; // saved location, w/ id if new
+          this.goBack(location);
         })
         .catch(error => this.error = error); // TODO: Display error message
   }
-  goBack(savedHero: Hero = null) {
-    this.close.emit(savedHero);
+  goBack(savedLocation: Location = null) {
+    this.close.emit(savedLocation);
     if (this.navigated) { window.history.back(); }
   }
 }
