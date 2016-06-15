@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }           from '@angular/router-deprecated';
+import {JSONP_PROVIDERS}  from '@angular/http';
 
 import { Hero }        from './hero';
 import { HeroService } from './hero.service';
+import { ParkingService } from './parking.service';
 
 @Component({
   selector: 'my-dashboard',
   templateUrl: 'app/dashboard.component.html',
-  styleUrls: ['app/dashboard.component.css']
+  styleUrls: ['app/dashboard.component.css'],
+  providers: [JSONP_PROVIDERS, ParkingService]
 })
 export class DashboardComponent implements OnInit {
 
@@ -15,12 +18,18 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private heroService: HeroService) {
+    private heroService: HeroService,
+	private parkingService: ParkingService) {
   }
 
   ngOnInit() {
     this.heroService.getHeroes()
       .then(heroes => this.heroes = heroes.slice(1,5));
+	  
+	this.parkingService.getParkings()
+      .then(function(ps){
+	  	console.log(ps);
+	  });  
   }
 
   gotoDetail(hero: Hero) {
