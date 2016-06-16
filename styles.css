@@ -156,14 +156,16 @@ nav a.router-link-active {
 
 .reserved {
 	background-color: yellow;
+	opacity: 0.6;
 }
 
 .busy {
-	background-color: red;
+	background-color: cyan;
 }
 
 .available {
-	background-color: green;
+	background-color: lightgreen;
+	opacity: 0.4;
 }
 
 .parking-title {

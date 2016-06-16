@@ -28,14 +28,7 @@ export class DashboardComponent implements OnInit {
   }
 
   gotoDetail(location: Location) {
-    let link = ['LocationDetail', { id: location.id }];
+    let link = ['LocationDetail', { id: location._id }];
     this.router.navigate(link);
   }
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

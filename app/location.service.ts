@@ -18,10 +18,13 @@ export class LocationService {
 	
 	//private locationsUrl = 'http://localhost:5000/api/parkingsjsonp';  // URL to web api
 	
-	private locationsUrl = 'http://localhost:5000/api/parkings';  // URL to web api
+	//private locationsUrl = 'http://10.253.101.34:5000/api/parkings';  
+	//private reservationUrl = 'http://10.253.101.34:5000/res/reservations'; 
 	
-
-  constructor(private http: Http, private jsonp: Jsonp) { }
+	private locationsUrl = 'http://parkingonrent.herokuapp.com//api/parkings'; 
+	private reservationUrl = 'http://parkingonrent.herokuapp.com/res/reservations'; 
+	
+	constructor(private http: Http, private jsonp: Jsonp) { }
 
   getLocations(): Promise<Location[]> {
   	var params = new URLSearchParams();
@@ -37,25 +40,48 @@ export class LocationService {
 
 
   getLocation(id: string) {
-    return this.getLocations()
-               .then(locations => locations.filter(location => location.id === id)[0]);
+  
+  	let url = `${this.locationsUrl}/${id}`;
+	
+	return this.http
+               .get(url)
+               .toPromise()
+               .then(res => res.json())
+               .catch(this.handleError);
   }
 
   save(location: Location): Promise<Location>  {
-    if (location.id) {
+    if (location._id) {
       return this.put(location);
     }
     return this.post(location);
   }
 
-  delete(location: Location) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    let url = `${this.locationsUrl}/${location.id}`;
+  saveRes(reservation: any): Promise<any>  {
+    let headers = new Headers({
+      'Content-Type': 'application/json'});
 
     return this.http
-               .delete(url, headers)
+               .post(this.reservationUrl, JSON.stringify(reservation), {headers: headers})
+               .toPromise()
+               .then(res => res.json())
+               .catch(this.handleError);
+  }
+
+  deleteRes(id: string) {
+    let url = `${this.reservationUrl}/${id}`;
+
+    return this.http
+               .delete(url)
+               .toPromise()
+               .catch(this.handleError);
+  }
+
+  delete(location: Location) {
+    let url = `${this.locationsUrl}/${location._id}`;
+
+    return this.http
+               .delete(url)
                .toPromise()
                .catch(this.handleError);
   }
@@ -91,10 +117,3 @@ export class LocationService {
     return Promise.reject(error.message || error);
   }
 }
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

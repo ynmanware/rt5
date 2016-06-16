@@ -79,7 +79,7 @@ export class LocationDetailComponent implements OnInit {
 				  	
 				  myPolygon.addListener('click', function() {
 					self.zone.run(function() {
-						self.router.navigate(['SelectParking', {'id': space.id, 'space': space}]);
+						self.router.navigate(['SelectParking', {'spaceId': space._id, 'locationId': self.location._id}]);
 					 });
 				   });
 				}

@@ -9,9 +9,10 @@ export class Location {
 
 export class Space {
 			id: string;
+			_id: string;
   			name: string;
 			loc: [number];
-			rate: number,
+			rate: number;
 			owner: {
 				id: string,
 				name: string
