@@ -27,8 +27,7 @@ export class ParkingService {
 	return this.jsonp.get(this.parkingUrl, { search: params })
 				   .toPromise()
 				   .then(response => {
-				   	 console.log(response); 	
-				     response.json()
+				   	 console.log(response.json()); 	
 				   })
 				   .catch(function(rejected){
       					console.log(rejected);

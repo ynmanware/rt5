@@ -1,25 +1,42 @@
 import { Injectable }    from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Jsonp, URLSearchParams } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/Rx';
+
 
 import { Location } from './location';
 
 @Injectable()
 export class LocationService {
 
-  private locationsUrl = 'app/locations';  // URL to web api
+  //private locationsUrl = 'app/locations';  // URL to web api
+  
+  // private locationsUrl = 'http://www.mocky.io/v2/57625d1e100000480e8b13d0';  // URL to web api
+	
+	//private locationsUrl = 'http://parkingonrent.locationku.com/api/parkingsjsonp';  // URL to web api
+	
+	//private locationsUrl = 'http://localhost:5000/api/parkingsjsonp';  // URL to web api
+	
+	private locationsUrl = 'http://localhost:5000/api/parkings';  // URL to web api
+	
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private jsonp: Jsonp) { }
 
   getLocations(): Promise<Location[]> {
+  	var params = new URLSearchParams();
+    params.set('callback', 'JSONP_CALLBACK');	
+   
     return this.http.get(this.locationsUrl)
                .toPromise()
-               .then(response => response.json().data)
+               .then(function(response){
+			   	return response.json();
+			   })
                .catch(this.handleError);
   }
 
-  getLocation(id: number) {
+
+  getLocation(id: string) {
     return this.getLocations()
                .then(locations => locations.filter(location => location.id === id)[0]);
   }
@@ -60,7 +77,7 @@ export class LocationService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    let url = `${this.locationsUrl}/${location.id}`;
+	let url = `${this.locationsUrl}/${location._id}`;
 
     return this.http
                .put(url, JSON.stringify(location), {headers: headers})

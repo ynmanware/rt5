@@ -24,12 +24,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.locationService.getLocations()
-      .then(locations => this.locations = locations.slice(1,5));
-	  
-	this.parkingService.getParkings()
-      .then(function(ps){
-	  	console.log(ps);
-	  });  
+      .then(locations => this.locations = locations);
   }
 
   gotoDetail(location: Location) {

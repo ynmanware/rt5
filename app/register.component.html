@@ -1,0 +1,50 @@
+<h3>Top Locations</h3>
+<div class="grid grid-pad">
+  <div *ngFor="let location of locations" (click)="gotoDetail(location)" class="col-1-4">
+    <div class="module location">
+      <h4>{{location.name}}</h4>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:20px; clear: both">  </div>
+
+<div *ngIf="location">
+  <h2>Add space to {{location.name}} </h2>
+  <div>
+    <label>Space Id: </label>
+	<input readonly [(ngModel)]="spaceDetails.id" />
+  </div>	  
+  <div>
+    <label>Space name: </label>
+    <input [(ngModel)]="spaceDetails.name" placeholder="name" />
+  </div>
+   <div>
+    <label>Hourly Rate: </label>
+    <input [(ngModel)]="spaceDetails.rate" placeholder="10" />
+  </div>	
+  <div>
+    <label>Number Of Parking slots: </label>
+    <input [(ngModel)]="spaceDetails.slotsCount"/>
+   </div>
+
+   <div>
+    <label>Cords: </label>
+    <textarea readonly [(ngModel)]="spaceDetails.cordsstr"  style="height: 50px; width:500px"></textarea>
+   </div>
+
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+  <button (click)="save()">Reset</button>
+	
+</div>
+
+
+<div style="margin-top:20px; clear: both">  </div>
+<div style="margin-top:20px; clear: both" id="map-canvas"></div>
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

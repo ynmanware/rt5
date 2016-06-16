@@ -27,7 +27,7 @@ export class LocationDetailComponent implements OnInit {
   ngOnInit() {
   
     if (this.routeParams.get('id') !== null) {
-      let id = +this.routeParams.get('id');
+      let id = this.routeParams.get('id');
       this.navigated = true;
       this.locationService.getLocation(id)
           .then(location => {
@@ -36,10 +36,10 @@ export class LocationDetailComponent implements OnInit {
 
 		var pos = this.location.center;
 
-	  var myLatLng = new google.maps.LatLng(pos.lat, pos.lng);
+	  var myLatLng = new google.maps.LatLng(pos[0], pos[1]);
 	  // General Options
 	  var mapOptions = {
-		zoom: 19,
+		zoom: 17,
 		center: myLatLng,
 		mapTypeId: google.maps.MapTypeId.RoadMap
 	  };
@@ -71,7 +71,7 @@ export class LocationDetailComponent implements OnInit {
 				  myPolygon.setMap(map);
 
 				  var marker = new google.maps.Marker({
-					position: cords[1],
+					position: cords[0],
 					map: map,
 					title: space.name,
 					label: "P"
@@ -85,13 +85,7 @@ export class LocationDetailComponent implements OnInit {
 				}
 			})
 		  }
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+		  		  
 		  //map code ends here
 		  });
     } else {
@@ -99,7 +93,8 @@ export class LocationDetailComponent implements OnInit {
       this.location = new Location();
     }
   }
-  save() {
+
+ save() {
     this.locationService
         .save(this.location)
         .then(location => {
@@ -108,16 +103,9 @@ export class LocationDetailComponent implements OnInit {
         })
         .catch(error => this.error = error); // TODO: Display error message
   }
-  goBack(savedLocation: Location = null) {
+ 
+ goBack(savedLocation: Location = null) {
     this.close.emit(savedLocation);
     if (this.navigated) { window.history.back(); }
   }
 }
-
-
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

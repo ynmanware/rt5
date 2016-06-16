@@ -15,6 +15,8 @@ export class SelectParkingComponent implements OnInit {
   selectedSpace: any;
   locations: any;
   selected: any;
+  reservation: any;
+  
   
   constructor(private router: Router,
     private _locationService: LocationService,
@@ -22,6 +24,8 @@ export class SelectParkingComponent implements OnInit {
 	
 	console.log("_routeParams" + _routeParams);
 	this.selectedSpace = _routeParams.params['space'];
+	this.reservation = {};
+	this.reservation.client = "Yogesh";
   }
 
   getLocations() {
@@ -33,8 +37,11 @@ export class SelectParkingComponent implements OnInit {
   }
 
   onSelect(p: any) { 
-  	this.selected = p;
-  	console.log('selected Parking: ' + p)
+  	this.reservation.spotId = p.id;
+  }
+  
+  save() {
+  	console.log("Reservation: " + this.reservation);
   }
 
   openNavigationApp(s: any) { 
