@@ -10,7 +10,15 @@
 <div style="margin-top:20px; clear: both">  </div>
 
 <div *ngIf="location">
+	
   <h2>Add space to {{location.name}} </h2>
+  
+  <div>
+    <label>Owner: </label>
+    <input [(ngModel)]="spaceDetails.owner"/>
+  </div>
+	 	
+	
   <div>
     <label>Space Id: </label>
 	<input readonly [(ngModel)]="spaceDetails.id" />
@@ -26,11 +34,11 @@
   <div>
     <label>Number Of Parking slots: </label>
     <input [(ngModel)]="spaceDetails.slotsCount"/>
-   </div>
+  </div>
 
    <div>
     <label>Cords: </label>
-    <textarea readonly [(ngModel)]="spaceDetails.cordsstr"  style="height: 50px; width:500px"></textarea>
+    <textarea [(ngModel)]="spaceDetails.cordsstr"  style="height: 50px; width:500px"></textarea>
    </div>
 
   <button (click)="goBack()">Back</button>

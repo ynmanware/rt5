@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
 	this.spaceDetails.id = this.location.id + "-space-" + rn;
 	this.spaceDetails.name = "Space-" + rn;
 	this.spaceDetails.slotsCount = 2;
+	this.spaceDetails.owner = "FIS";
   }
   
   save() {
@@ -77,6 +78,8 @@ export class RegisterComponent implements OnInit {
 	if(!this.location.spaces){
 		this.location.spaces = new Array<Space>();
 	}
+	
+	this.spaceDetails.loc = [this.spaceDetails.cords[0].lat, this.spaceDetails.cords[0].lng];
 	
 	this.location.spaces.push(this.spaceDetails);
 	
@@ -143,17 +146,6 @@ var myLatLng = new google.maps.LatLng(pos[0], pos[1]);
 						self.getPolygonCoords();
 					 });
 				   }); 	
-	
-	var pos1 = {
-              lat:18.516287,
-              lng:73.841935
-            };
-	
-	var marker = new google.maps.Marker({
-    position: pos1,
-    map: map,
-    title: 'Parking Slot A!'
-  });
 
   }
   

@@ -5,32 +5,69 @@ export class InMemoryDataService {
 		"name" : "J.M. Road",
 		"center" : [18.521456268852553, 73.84720355272293],
 		"spaces":[{
-		"id" : "JMRoad-S1",
-		"loc":[18.516557630068778, 73.84272658895497],
-		"owner" : {"id":"xyz", "name": "xyz"},
-		"name" : "S1 (Near Dominos)",
-		"slots": [{"id":1, "name":"Parking1"}, {"id":2, "name":"Parking2"}, {"id":3, "name":"Parking3", "status":"reserved"}, {"id":4, "name":"Parking4", "status":"busy"}],
-		"cords":[{"lat":18.516557630068778, "lng":73.84272658895497}, {"lat":18.516547630069223, "lng":73.84274658895481}, {"lat":18.5162676300817, "lng":73.84256658895492}, {"lat":18.51628763008083, "lng":73.842536588955}]
-		},{
-		"id" : "JMRoad-S2",
-		"loc":[18.516538554896176, 73.84284192394261],
-		"owner" : {"id":"xyz12", "name": "xyz12"},
-		"name" : "S2 (Near SaiBabaMandir)",
-		"slots": [{"id":"1", "name":"Parking1", "status":"busy"}, {"id":"2", "name":"Parking2", "status":"reserved"}],
-		"cords":[{"lat":18.516538554896176, "lng":73.84284192394261}, {"lat":18.51652219650382, "lng":73.84286125339031}, {"lat":18.5164221391631, "lng":73.84279323561668}, {"lat":18.51643323739123, "lng":73.84277329390056}]
-		}]
+				"id" : "JMRoad-space-8271",
+				"name" : "Space-8271",
+				"_id" : "5762fe5b2705e70300e8737a",
+				"cords" : [{
+						"lat" : 18.516811965499947,
+						"lng" : 73.84288752149587
+					}, {
+						"lat" : 18.516801965515235,
+						"lng" : 73.8429075214957
+					}, {
+						"lat" : 18.516521965944,
+						"lng" : 73.84272752149582
+					}, {
+						"lat" : 18.516541965913394,
+						"lng" : 73.8426975214959
+					}
+				],
+				"slots" : [{
+						"id" : "P-JMRoadJMRoad-space-82710",
+						"name" : "parking-0",
+						"status" : "available"
+					}, {
+						"id" : "P-JMRoadJMRoad-space-82711",
+						"name" : "parking-1",
+						"status" : "available"
+					}
+				],
+				"loc" : [18.516811965499947, 73.84288752149587]
+			}]
 	}, {
-		"id" : "FCRoad",
+		"id" : "FC Road",
 		"name" : "F. C. Road",
-		"center" : [18.524538700511606, 73.84127855300903],
+		"center" : [18.521456268852553, 73.84720355272293],
 		"spaces":[{
-		"id" : "FCRoad-S1",
-		"loc":[18.516538554896176, 73.84284192394261],
-		"owner" : {"id":"abc1", "name": "abc1"},
-		"name" : "S1 (Near Dominos)",
-		"slots": [{"id":"sdsd", "name":"Parking1"}, {"id":"wew", "name":"Parking2"}, {"id":"sdsds", "name":"Parking3", "status":"reserved"}, {"id":"sdsdwe", "name":"Parking4", "status":"busy"}],
-		"cords":[{"lat":18.516557630068778, "lng":73.84272658895497}, {"lat":18.516547630069223, "lng":73.84274658895481}, {"lat":18.5162676300817, "lng":73.84256658895492}, {"lat":18.51628763008083, "lng":73.842536588955}]
-		}]
+				"id" : "JMRoad-space-8271",
+				"name" : "Space-8271",
+				"_id" : "5762fe5b2705e70300e8737a",
+				"cords" : [{
+						"lat" : 18.516811965499947,
+						"lng" : 73.84288752149587
+					}, {
+						"lat" : 18.516801965515235,
+						"lng" : 73.8429075214957
+					}, {
+						"lat" : 18.516521965944,
+						"lng" : 73.84272752149582
+					}, {
+						"lat" : 18.516541965913394,
+						"lng" : 73.8426975214959
+					}
+				],
+				"slots" : [{
+						"id" : "P-JMRoadJMRoad-space-82710",
+						"name" : "parking-0",
+						"status" : "available"
+					}, {
+						"id" : "P-JMRoadJMRoad-space-82711",
+						"name" : "parking-1",
+						"status" : "available"
+					}
+				],
+				"loc" : [18.516811965499947, 73.84288752149587]
+			}]
 	}
 ];
     return {locations};
