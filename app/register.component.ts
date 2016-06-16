@@ -109,7 +109,7 @@ var myLatLng = new google.maps.LatLng(pos[0], pos[1]);
     center: myLatLng,
     mapTypeId: google.maps.MapTypeId.RoadMap
   };
-  var map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+  var map = new google.maps.Map(document.getElementById('mapid'),mapOptions);
   
   // Polygon Coordinates
   var cords: any[] = [];

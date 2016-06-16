@@ -7,7 +7,6 @@ export class InMemoryDataService {
 		"spaces":[{
 				"id" : "JMRoad-space-8271",
 				"name" : "Space-8271",
-				"_id" : "5762fe5b2705e70300e8737a",
 				"cords" : [{
 						"lat" : 18.516811965499947,
 						"lng" : 73.84288752149587
@@ -41,7 +40,6 @@ export class InMemoryDataService {
 		"spaces":[{
 				"id" : "JMRoad-space-8271",
 				"name" : "Space-8271",
-				"_id" : "5762fe5b2705e70300e8737a",
 				"cords" : [{
 						"lat" : 18.516811965499947,
 						"lng" : 73.84288752149587
@@ -74,9 +72,3 @@ export class InMemoryDataService {
   }
 }
 
-
-/*
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

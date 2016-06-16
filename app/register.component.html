@@ -1,4 +1,4 @@
-<h3>Top Locations</h3>
+<h3>Register Your Space</h3>
 <div class="grid grid-pad">
   <div *ngFor="let location of locations" (click)="gotoDetail(location)" class="col-1-4">
     <div class="module location">
@@ -11,7 +11,7 @@
 
 <div *ngIf="location">
 	
-  <h2>Add space to {{location.name}} </h2>
+  <h2>Add your space to {{location.name}} </h2>
   
   <div>
     <label>Owner: </label>
@@ -46,13 +46,3 @@
   <button (click)="reset()">Reset</button>
 	
 </div>
-
-
-<div style="margin-top:20px; clear: both">  </div>
-<div style="margin-top:20px; clear: both" id="map-canvas"></div>
-
-<!-- 
-Copyright 2016 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->

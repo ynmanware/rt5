@@ -1,4 +1,4 @@
-<h2>Select Parking Slot</h2>
+<h2>Select a Parking Slot</h2>
 <div *ngIf="selectedSpace">
 	<div *ngFor="#p of selectedSpace.slots">
 	  <div [hidden]="!(p.status == 'available')" (click)="onSelect(p)" class="parking" [ngClass]="p.status">
@@ -13,13 +13,12 @@
 		
 	<div style="margin-top:20px; clear: both">  </div>
 	
-	<div *ngIf="reservation.selectedSlot">
+	<div *ngIf="reservation.selectedSlot" style="clear:left; margin-top:30px">
 		<label>Selected Slot: </label>
 		<span> {{reservation.selectedSlot.name}} </span>
 	</div>
 	
-	
-	<div style="clear:left; margin-top:30px">
+	<div>
 		<label>Select From Date: </label>
 		<input type="date" [(ngModel)]="reservation.from"/>
 	</div>
