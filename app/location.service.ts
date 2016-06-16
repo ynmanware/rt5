@@ -21,7 +21,7 @@ export class LocationService {
 	//private locationsUrl = 'http://10.253.101.34:5000/api/parkings';  
 	//private reservationUrl = 'http://10.253.101.34:5000/res/reservations'; 
 	
-	private locationsUrl = 'http://parkingonrent.herokuapp.com//api/parkings'; 
+	private locationsUrl = 'http://parkingonrent.herokuapp.com/api/parkings'; 
 	private reservationUrl = 'http://parkingonrent.herokuapp.com/res/reservations'; 
 	
 	constructor(private http: Http, private jsonp: Jsonp) { }
