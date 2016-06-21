@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
 	this.spaceDetails.slots = [];
 	
 	for(var i=0; i< n; i++){
-		this.spaceDetails.slots.push({"id": "P-" + this.location.id + this.spaceDetails.id + i, "name": "parking-" + i, "status": "available"})
+		this.spaceDetails.slots.push({"id": "P-" + this.location.id + this.spaceDetails.id + i, "name": "slot-" + i, "status": "available"})
 	}
 	
 	var name = Math.floor(Math.random() * (10000 - 1) + 1);

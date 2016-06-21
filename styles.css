@@ -5,12 +5,14 @@
 .parking{
 	float: left;
   	border: solid red 1px;
-    width: 130px;
-    height: 200px;
+    width: 50px;
+    height: 70px;
     text-align: center;
-	line-height: 250px;
-	margin-left: 15px;
+	margin-left: 5px;
 	margin-top: 25px;
+	padding:10px;
+	background-color: lightgreen;
+	opacity: 0.4;
 }
 
 .reserved {
@@ -19,18 +21,17 @@
 }
 
 .busy {
-	background-color: cyan;
-}
-
-.available {
-	background-color: lightgreen;
-	opacity: 0.4;
+	background-color: gray;
+	opacity: 1;
 }
 
 .parking-title {
     font-family: cursive;
-    font-size: x-large;
-    color: white;	
+    font-size: x-small;
+}
+
+.active1 {
+	border: 2px solid blue;
 }
 
 /* override bootstrap styles */
@@ -201,3 +202,6 @@ a,a:hover {
 .btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
 .btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
 
+.field {
+	margin:5px;
+}

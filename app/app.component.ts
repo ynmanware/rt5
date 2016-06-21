@@ -30,5 +30,5 @@ import { RegisterComponent } from './register.component';
   { path: '/register',     name: 'Register',     component: RegisterComponent },
 ])
 export class AppComponent {
-  title = 'Smart City - A Parking Solution';
+  title = 'Easy Parkk';
 }

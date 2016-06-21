@@ -75,6 +75,10 @@ export class SelectParkingComponent implements OnInit {
 		this.reservation.selectedSlot = p;
 	}
 
+	isActive(p) {
+	 	return this.reservation.selectedSlot == p;
+	}
+
 	save() {
 		var self = this;
 		this.reservation.spotId = this.reservation.selectedSlot.id;

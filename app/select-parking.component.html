@@ -1,42 +1,49 @@
 <h2>Select a Parking Slot</h2>
 <div *ngIf="selectedSpace">
-{{selectedSpace.id}}
-	<button style="float:right; margin-right:100px" (click)="refresh()">Refresh</button>
+
+<snap>{{selectedSpace.id}}</snap>
+
+	<div style="margin:20px; float:right; margin-right:40px" class="form-group">
+			<a href="javascript:void(0)" (click)="save()"> <i class="fa fa-save fa-6" style="font-size: 1.5em; margin-left:10px" aria-hidden="true"></i>  </a>
+			<a href="javascript:void(0)" (click)="openNavigationApp(selectedSpace)"> <i class="fa fa-external-link fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
+			<a id="pageRefresh"  href="javascript:void(0)" (click)="refresh()"> <i class="fa fa-refresh fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
+	</div>	
+
 	<div style="margin-left:20px" *ngFor="#p of selectedSpace.slots">
-	  <div [hidden]="!(p.status == 'available')" (click)="onSelect(p)" class="parking" [ngClass]="p.status">
+		
+	  <div title="{{p.status}}" [hidden]="!(p.status == 'available')" (click)="onSelect(p)" class="parking" [ngClass]="{'active1': isActive(p)}">
+		 <i class="fa fa-car fa-6" style="font-size: 1.5em" aria-hidden="true"></i> 
 		 <span class="parking-title">{{p.name}}</span>
 	  </div>
 	
-	  <div [hidden]="(p.status == 'available')" (click)="onSelect(p)" class="parking" [ngClass]="p.status">
-		  <i class="fa fa-car fa-6" style="font-size: 7em" aria-hidden="true"></i> 
+	  <div title="{{p.status}}" (click)="reservation.selectedSlot = null" [hidden]="(p.status == 'available')" class="parking" [ngClass]="p.status">
+		  <i class="fa fa-car fa-6" style="font-size: 1.5em" aria-hidden="true"></i> 
 		 <span class="parking-title">{{p.name}}</span>
 	  </div>	 
 	</div>
 		
 	<div style="margin-top:20px; clear: both">  </div>
 	
-	<form class="form-horizontal bv-form" style="width:400px; margin-left: 250px">
-		<div *ngIf="reservation.selectedSlot" style="clear:left; margin-top:30px">
+	<form *ngIf="reservation.selectedSlot" class="form-inline" style="margin-top:50px; margin-left: 50px">
+		<div  class="form-group">
 			<label>Selected Slot: </label>
-			<span class="form-control" style="border: blue 2px solid;" > {{reservation.selectedSlot.name}}</span>
+			<span class="form-control"> {{reservation.selectedSlot.name}}</span>
 		</div>
-		<div>
+		<div class="form-group">
 			<label>Select From Date: </label>
 			<input class="form-control" type="date" [(ngModel)]="reservation.from"/>
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label>Select To Date: </label>
 			<input class="form-control"  type="date" [(ngModel)]="reservation.to"/>
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label>Hourly Rate: </label>
 			<span class="form-control" >{{selectedSpace.rate}}</span>
 		</div>
-		<div style="margin-top:20px">
-			<button (click)="save()">Save</button>
-			<button (click)="openNavigationApp(selectedSpace)">Open Navigation!</button>
-		</div>
+	
 	</form>
+	
 </div>
