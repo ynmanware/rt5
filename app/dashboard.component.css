@@ -23,19 +23,19 @@ h3 {
   width: 25%;
 }
 .module {
-	padding: 20px;
+	padding: 10px;
 	text-align: center;
 	color: #eee;
-	max-height: 120px;
-	min-width: 120px;
-	background-color: #607D8B;
+	max-height: 60px;
+	min-width: 60px;
+	background-color: #608042;
 	border-radius: 2px;
 }
 h4 {
   position: relative;
 }
 .module:hover {
-  background-color: #EEE;
+  background-color: lightgreen;
   cursor: pointer;
   color: #607d8b;
 }
