@@ -22,17 +22,17 @@
     </script>
   </head>
 
-  <body style="padding:10px">
+  <body style="padding:20px">
     <my-app>Loading...</my-app>
 	
 	<script>
 
 		(function(){
-			var refbtn = document.getElementById('pageRefresh1');	
+			var refbtn = document.getElementById('pageRefresh');	
 			if(refbtn){
 				refbtn.click();	
 			}
-			setTimeout(arguments.callee, 10000);
+			setTimeout(arguments.callee, 5000);
 		})();
 
 	</script>

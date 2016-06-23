@@ -9,7 +9,9 @@
 	<div style="margin:20px; float:right; margin-right:40px" class="form-group">
 			<a href="javascript:void(0)" (click)="save()"> <i class="fa fa-save fa-6" style="font-size: 1.5em; margin-left:10px" aria-hidden="true"></i>  </a>
 			<a href="javascript:void(0)" (click)="openNavigationApp(selectedSpace)"> <i class="fa fa-external-link fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
-			<a id="pageRefresh"  href="javascript:void(0)" (click)="refresh()"> <i class="fa fa-refresh fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
+			<a href="javascript:void(0)" (click)="refresh(true)"> <i class="fa fa-refresh fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
+			<a [hidden]="true" id="pageRefresh"  href="javascript:void(0)" (click)="refresh()"> <i class="fa fa-refresh fa-6" style="font-size: 1.5em;  margin-left:10px" aria-hidden="true"></i>  </a>
+			<a href="javascript:void(0)" (click)="toggleAutoRefresh()"> <i class="fa fa-refresh fa-2" style="margin-left:10px" aria-hidden="true" title="Auto Refresh"></i> </a>
 	</div>	
 
 	<div style="margin-left:20px" *ngFor="#p of selectedSpace.slots">

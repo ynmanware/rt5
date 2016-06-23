@@ -37,18 +37,29 @@ export class SelectParkingComponent implements OnInit {
 	locationId : string;
 	spaceId : string;
 
+	refreshOn: any;
+	
 	constructor(private router : Router,
 		private _locationService : LocationService,
 		private _routeParams : RouteParams) {
 
 		this.locationId = _routeParams.params['locationId'];
 		this.spaceId = _routeParams.params['spaceId'];
-		this.refresh();
+		this.refresh(true);
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.refreshOn = false;
+	}
+	
+	toggleAutoRefresh(){
+		this.refreshOn = !this.refreshOn;
+	}	
 
-	refresh() {
+	refresh(force) {
+		if(!force && !this.refreshOn){
+			return;
+		}
 		var self = this;
 		this._locationService.getLocation(this.locationId).then(location => {
 				for (var i = 0; i < location.spaces.length; i++) {
@@ -75,7 +86,7 @@ export class SelectParkingComponent implements OnInit {
 		this.reservation.selectedSlot = p;
 	}
 
-	isActive(p) {
+	isActive(p: any) {
 	 	return this.reservation.selectedSlot == p;
 	}
 
@@ -89,7 +100,7 @@ export class SelectParkingComponent implements OnInit {
 		 this._locationService.saveRes(this.reservation)
         .then(result => {
           console.log("result: " + result);
-		  self.refresh();
+		  self.refresh(true);
         })
         .catch(error => console.log(error)); // TODO: Display error message
 	}
