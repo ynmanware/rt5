@@ -22,6 +22,8 @@ import {
 }
 from './location.service';
 
+declare var io: any;
+
  @ Component({
 	selector : 'select-parking',
 	templateUrl : 'app/select-parking.component.html',
@@ -38,6 +40,8 @@ export class SelectParkingComponent implements OnInit {
 	spaceId : string;
 
 	refreshOn: any;
+	socket: any;
+	
 	
 	constructor(private router : Router,
 		private _locationService : LocationService,
@@ -49,14 +53,21 @@ export class SelectParkingComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		var self = this;
+		
 		this.refreshOn = false;
+		this.socket = io('http://parkingonrent.herokuapp.com');
+		this.socket.on('refresh', function() {
+			console.log("refresh UI");
+            self.refresh(true);
+        });
 	}
 	
 	toggleAutoRefresh(){
 		this.refreshOn = !this.refreshOn;
 	}	
 
-	refresh(force) {
+	refresh(force: any) {
 		if(!force && !this.refreshOn){
 			return;
 		}
@@ -114,7 +125,7 @@ export class SelectParkingComponent implements OnInit {
 		 this._locationService.deleteRes(this.reservation.selectedSlot._id)
         .then(result => {
           console.log("result: " + result);
-		  self.refresh();
+		  self.refresh(true);
         })
         .catch(error => console.log(error)); // TODO: Display error message
 	}

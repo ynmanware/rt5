@@ -18,8 +18,8 @@ export class LocationService {
 	
 	//private locationsUrl = 'http://localhost:5000/api/parkingsjsonp';  // URL to web api
 	
-	//private locationsUrl = 'http://10.253.101.34:5000/api/parkings';  
-	//private reservationUrl = 'http://10.253.101.34:5000/res/reservations'; 
+	//private locationsUrl = 'http://localhost:5000/api/parkings';  
+	//private reservationUrl = 'http://localhost:5000/res/reservations'; 
 	
 	private locationsUrl = 'http://parkingonrent.herokuapp.com/api/parkings'; 
 	private reservationUrl = 'http://parkingonrent.herokuapp.com/res/reservations'; 
